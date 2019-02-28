@@ -3,4 +3,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t TAG_FOR_TRAVIS -f Dockerfile.dev .
+  - docker build -t kdmatrosov/docker-travis-aws -f Dockerfile.dev .
+
+script:
+  - docker run kdmatrosov/docker-travis-aws npm run test -- --coverage
+
